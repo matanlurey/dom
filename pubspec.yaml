@@ -1,0 +1,5 @@
+name: dom
+description: A virtual DOM API for Dart.
+homepage: https://github.com/matanlurey/dom
+author: Matan Lurey <matanl@google.com>
+version: 0.0.0-dev-1
