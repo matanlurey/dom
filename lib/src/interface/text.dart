@@ -1,7 +1,9 @@
 part of dom.src.interface;
 
 /// Virtual text API.
-abstract class Text extends Node {
+class Text extends Node {
   /// Value of the node.
-  String get value;
+  final String value;
+
+  const Text(this.value);
 }

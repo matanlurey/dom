@@ -1,10 +1,12 @@
 part of dom.src.interface;
 
 /// Virtual attribute API.
-abstract class Attribute {
+class Attribute {
   /// Name of the attribute.
-  String get name;
+  final String name;
 
   /// Value of the attribute. Can optionally be null for no value.
-  String get value;
+  final String value;
+
+  const Attribute(this.name, [this.value]);
 }

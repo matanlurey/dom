@@ -1,4 +1,6 @@
 part of dom.src.interface;
 
 /// Virtual node API.
-abstract class Node {}
+abstract class Node {
+  const Node();
+}
