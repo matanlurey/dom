@@ -10,5 +10,8 @@ virtual DOM tree and utilities for working with them.
 
 By default, nodes are:
 
-* Deeply immutable
-* 
+* Deeply immutable (equality and hash-able)
+* Serializable (with a proof-of-concept `JSON` codec)
+* Have nothing specific to any rendering implementation
+
+This should be enough to build on or extend for most implementations.
