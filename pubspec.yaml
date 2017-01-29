@@ -2,7 +2,7 @@ name: dom
 author: Matan Lurey <matan@lurey.org>
 description: A virtual DOM library for Dart
 homepage: https://github.com/matanlurey/dom
-version: 0.1.0
+version: 0.2.0
 
 environment:
   sdk: '>=1.20.0 <2.0.0'

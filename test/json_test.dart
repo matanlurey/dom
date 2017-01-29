@@ -7,9 +7,10 @@ import 'package:test/test.dart';
 
 void main() {
   test('should encode and decode to JSON', () {
-    final tree = new Element('button', children: [
-      new Attribute('disabled'),
-      new Attribute('title', 'Hello World'),
+    final tree = new Element('button', attributes: {
+      'disabled': null,
+      'title': 'Hello World',
+    }, children: [
       new Element('span', children: [
         new Text('Hello World'),
       ]),

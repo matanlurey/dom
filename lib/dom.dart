@@ -3,6 +3,6 @@
 // BSD-style license that can be found in the LICENSE file.
 
 export 'src/codecs/json.dart' show JsonCodec;
-export 'src/element.dart' show Attribute, Element, Text;
+export 'src/element.dart' show Element, Text;
 export 'src/node.dart' show Node;
 export 'src/visitor.dart' show IdentityVisitor, Visitor;

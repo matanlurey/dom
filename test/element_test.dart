@@ -6,26 +6,23 @@ import 'package:dom/dom.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('$Attribute should implement equality', () {
-    expect(
-      new Attribute('title', 'Hello'),
-      new Attribute('title', 'Hello'),
-    );
-  });
-
   test('$Element should implement equality', () {
     expect(
       new Element(
         'button',
+        attributes: {
+          'disabled': null,
+        },
         children: [
-          new Attribute('disabled'),
           new Text('Hello'),
         ],
       ),
       new Element(
         'button',
+        attributes: {
+          'disabled': null,
+        },
         children: [
-          new Attribute('disabled'),
           new Text('Hello'),
         ],
       ),

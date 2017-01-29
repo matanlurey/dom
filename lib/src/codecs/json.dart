@@ -36,13 +36,13 @@ class _JsonDecoderVisitor implements Visitor<Map<String, dynamic>> {
   const _JsonDecoderVisitor();
 
   @override
-  void visitAttribute(Attribute node, [Map<String, dynamic> context]) {
-    context
-      ..['name'] = node.name
-      ..['type'] = 'attribute';
-    if (node.value != null) {
-      context['value'] = node.value;
-    }
+  void visitAttribute(
+    Element node,
+    String name,
+    String value, [
+    Map<String, dynamic> context,
+  ]) {
+    context[name] = value;
   }
 
   @override
@@ -56,6 +56,18 @@ class _JsonDecoderVisitor implements Visitor<Map<String, dynamic>> {
         node.accept(this, child);
         return child;
       }).toList();
+    }
+    if (node.attributes.isNotEmpty) {
+      final attributes = <String, String>{};
+      node.attributes.forEach((name, value) {
+        visitAttribute(
+          node,
+          name,
+          value,
+          attributes,
+        );
+      });
+      context['attributes'] = attributes;
     }
   }
 
@@ -80,18 +92,14 @@ class _JsonEncoder extends Converter<String, Element> {
         return _convertElement(node);
       case 'text':
         return _convertText(node);
-      case 'attribute':
-        return _convertAttribute(node);
       default:
         return null;
     }
   }
 
-  static Attribute _convertAttribute(Map<String, dynamic> node) =>
-      new Attribute(node['name'], node['value']);
-
   static Element _convertElement(Map<String, dynamic> node) =>
       new Element(node['name'],
+          attributes: (node['attributes'] as Map<String, String> ?? const {}),
           children:
               (node['children'] as List ?? const []).map(_convertAny).toList());
 

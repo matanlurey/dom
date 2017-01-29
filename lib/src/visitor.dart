@@ -19,7 +19,7 @@ abstract class Visitor<C> {
   }
 
   /// Called for every attribute in a tree.
-  void visitAttribute(Attribute node, [C context]);
+  void visitAttribute(Element node, String name, String value, [C context]);
 
   /// Called for every element in a tree.
   void visitElement(Element node, [C context]);
@@ -33,7 +33,7 @@ class IdentityVisitor<C> implements Visitor<C> {
   const IdentityVisitor();
 
   @override
-  void visitAttribute(Attribute node, [C context]) {}
+  void visitAttribute(Element node, String name, String value, [C context]) {}
 
   @override
   void visitElement(Element node, [C context]) {}
